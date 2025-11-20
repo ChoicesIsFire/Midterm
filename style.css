@@ -5,3 +5,64 @@ li{
       margin: 0px;
       background-color: lightgray;
     }
+
+    .music-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    #music-toggle {
+      display: none;
+    }
+
+    .music-box {
+      width: 60px;
+      height: 60px;
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 50%;
+      box-shadow: 0 0 15px #00e0ff77;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: 0.4s ease;
+    }
+
+    .music-box:hover {
+      box-shadow: 0 0 25px #00e0ffff;
+      transform: scale(1.05);
+    }
+    .music-box::before {
+      content: "🎵";
+      font-size: 26px;
+    }
+
+    #music-toggle:checked + .music-box {
+      width: 260px;
+      height: 80px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px #00e0ffff;
+      justify-content: flex-start;
+      padding-left: 15px;
+    }
+
+    #music-toggle:checked + .music-box::before {
+      content: "Music Player";
+      font-size: 18px;
+      color: #00e0ff;
+      text-shadow: 0 0 10px #00e0ff99;
+      margin-right: 10px;
+    }
+
+    .music-box audio {
+      display: none;
+      width: 150px;
+      filter: invert(80%) hue-rotate(160deg);
+    }
+
+    #music-toggle:checked + .music-box audio {
+      display: block;
+    }
